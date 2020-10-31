@@ -40,7 +40,6 @@
       .daybutton{
         background: url(sun.png);
         border: none;
-        padding: none;
         width: 23px;
         height: 15px;
         cursor: pointer;
@@ -48,7 +47,6 @@
       .nightbutton{
         background: url(moon.png);
         border: none;
-        padding: none;
         width: 23px;
         height: 15px;
         cursor: pointer;
@@ -63,13 +61,16 @@
       <li>Goal</li>
       <li>Scrap</li>
     </ul>
-    <input type="button" class="daybutton" onclick="
-      document.querySelector('body').style.background = 'linear-gradient(to bottom,#eedcfc 60%,#fff2fb 80%,#fffafd)';
-      document.querySelector('body').style.color = '#04030f';
-    ">
-    <input type="button" class="nightbutton" onclick="
-      document.querySelector('body').style.background = 'linear-gradient(to bottom,#010103 60%,#05050d 80%,#04030f)';
-      document.querySelector('body').style.color = '#fffafd';
+    <input type="button" id="day_night" class="daybutton" onclick="
+      if(document.querySelector('#day_night').className === 'daybutton'){
+        document.querySelector('body').style.background = 'linear-gradient(to bottom,#eedcfc 60%,#fff2fb 80%,#fffafd)';
+        document.querySelector('body').style.color = '#04030f';
+        document.querySelector('#day_night').className = 'nightbutton';
+      } else {
+        document.querySelector('body').style.background = 'linear-gradient(to bottom,#010103 60%,#05050d 80%,#04030f)';
+        document.querySelector('body').style.color = '#fffafd';
+        document.querySelector('#day_night').className = 'daybutton';
+      }
     ">
   </body>
 </html>
